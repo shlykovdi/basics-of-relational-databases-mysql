@@ -1,0 +1,19 @@
+DROP DATABASE IF EXISTS test;
+CREATE DATABASE test;
+
+USE test;
+
+CREATE TABLE storehouses_products(
+	id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	value BIGINT UNSIGNED NOT NULL
+);
+
+INSERT INTO storehouses_products(value) VALUES 
+(FLOOR(RAND() * 100)),(FLOOR(RAND() * 100)),(FLOOR(RAND() * 100)),(0),
+(FLOOR(RAND() * 100)),(FLOOR(RAND() * 100)),(FLOOR(RAND() * 100)),(FLOOR(RAND() * 100)),
+(0),(FLOOR(RAND() * 100)),(FLOOR(RAND() * 100)),(FLOOR(RAND() * 100)),
+(FLOOR(RAND() * 100)),(FLOOR(RAND() * 100)),(0),(FLOOR(RAND() * 100)),
+(FLOOR(RAND() * 100)),(0),(FLOOR(RAND() * 100)),(FLOOR(RAND() * 100));
+
+
+SELECT value FROM storehouses_products ORDER BY IF(value = 0, 1, 0), value;
